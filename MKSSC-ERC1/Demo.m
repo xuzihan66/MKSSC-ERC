@@ -6,7 +6,7 @@ LowRankRate = 0.05;
 res = zeros(3 , 6);
 path = './';
 addpath(genpath(path));
-addpath('D\MKSSC-ERC\Multi-Omic Data');
+addpath('Multi-Omic Data');
 %Import the selected kernels
 load GBM.mat
 label = table2array(Response(:,2:end));
@@ -19,7 +19,7 @@ label = table2array(Response(:,2:end));
 z=[19;50;79;167;179] ;
 % 
 %% initialization
-%GBM×î¼Ñ·ÖÀàÎª5£»BIC×î¼Ñ·ÖÀàÎª6£»COAD×î¼Ñ·ÖÀàÎª6£»KRCCC×î¼Ñ·ÖÀàÎª4£»LSCC×î¼Ñ·ÖÀàÎª5
+%GBMæœ€ä½³åˆ†ç±»ä¸º5ï¼›BICæœ€ä½³åˆ†ç±»ä¸º6ï¼›COADæœ€ä½³åˆ†ç±»ä¸º6ï¼›KRCCCæœ€ä½³åˆ†ç±»ä¸º4ï¼›LSCCæœ€ä½³åˆ†ç±»ä¸º5
     CluNum =5;
     KerNum = size(KH,3);
     SampleNum = size(KH,1); 
@@ -38,7 +38,7 @@ z=[19;50;79;167;179] ;
     avgKer=sumKbeta(KHL,KernelWeight);
     BaseValue = norm(avgKer , 'fro')^2;
     RegularizationValue = 10^(-4) * BaseValue;
-    Alpha_T = 0 * BaseValue;%Ä¬ÈÏÎª0
+    Alpha_T = 0 * BaseValue;%é»˜è®¤ä¸º0
     Beta_T = 2.^[-8 , -2 , 2 , 6, 10];
     NNRate = [0.01,0.03,0.06,0.09 ,0.11,0.13,0.15,0.18,0.21];
     %   Beta_T = 2.^[-8:1:-2];
